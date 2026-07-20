@@ -43,9 +43,7 @@ Automatically score:
 
 5. Human feedback
 Allow users to:
-👍 Helpful
-👎 Not helpful
-⭐ Rate the answer
+Helpful/Not helpful/Rate the answer
 - Add comments.
 
 
