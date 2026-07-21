@@ -1,6 +1,25 @@
 # ResearchCompass
 A modular AI-assisted research workflow for scientific literature retrieval, evaluation, and knowledge management.
 
+## Table of Contents
+- [ResearchCompass](#researchcompass)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Motivation](#motivation)
+  - [Goals](#goals)
+  - [Architecture](#architecture)
+  - [Modular Components](#modular-components)
+  - [Tech Stack](#tech-stack)
+  - [Development Roadmap](#development-roadmap)
+    - [Milestone 1 - Core](#milestone-1---core)
+    - [Milestone 2 - Evaluation](#milestone-2---evaluation)
+    - [Milestone 3 - Research Workspace](#milestone-3---research-workspace)
+    - [Milestone 4 - Research Intelligence](#milestone-4---research-intelligence)
+  - [Initial Research Domain](#initial-research-domain)
+    - [Version 1.0 focuses on:](#version-10-focuses-on)
+  - [Future Extensions](#future-extensions)
+
+
 ## Overview
 ResearchCompass is a modular AI-assisted scientific research workflow designed to help researchers efficiently explore, analyze, and organize academic literature.
 
@@ -31,6 +50,7 @@ ResearchCompass aims to address this challenge by building a modular AI-assisted
    - Reduce manual time of searching papers, comparing methods, organizing notes.
 
 ## Architecture
+(to add)
 
 ## Modular Components
 1. Document Module
