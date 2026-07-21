@@ -1,104 +1,92 @@
 # ResearchCompass
+A modular AI-assisted research workflow for scientific literature retrieval, evaluation, and knowledge management.
 
-AI Research Assistant & Evaluation Platform
+## Overview
+ResearchCompass is a modular AI-assisted scientific research workflow designed to help researchers efficiently explore, analyze, and organize academic literature.
 
-## Problem
-Researchers spend a lot of time:
-* searching papers
-* comparing results
-* verifying AI-generated summaries
-* checking citations
-* organizing knowledge
+The project combines literature retrieval, Retrieval-Augmented Generation (RAG), AI response evaluation, and knowledge management into a unified research workflow. Instead of treating Large Language Models as standalone answer generators, ResearchCompass focuses on building reliable AI-assisted research processes through modular components, source-grounded responses, and continuous evaluation.
 
-Current LLMs help, but their outputs vary in quality and can hallucinate.
+The first version of ResearchCompass focuses on quantum computing and quantum communication literature, including topics such as quantum key distribution (QKD), quantum error correction (QEC), and quantum networking. The architecture is designed to be extensible to other scientific domains by replacing or expanding domain-specific knowledge sources.
 
+The long-term goal is to explore how AI systems can assist researchers by reducing information overload, improving literature understanding, and supporting knowledge discovery while maintaining transparency and reliability.
 
-## Core features
-1. Paper Retrieval
-- Upload PDFs.
+## Motivation
+As I continue self-learning quantum computing, structured learning resources such as IBM Quantum Learning provide a strong foundation, but deeper exploration of research topics, such as surface codes in quantum error correction, parameter optimization in quantum key distribution, and emerging quantum communication technologies, requires engaging with scientific literature.
 
-Examples:
-* arXiv papers
-* Nature papers
-* Quantum papers
-* AI papers
+Research papers are one of the most valuable resources for understanding technical details, following new developments, and building connections between different concepts. However, navigating the rapidly growing volume of quantum computing research is challenging. Thousands of new papers are published every year, while foundational papers from earlier work remain essential for building strong understanding.
 
-2. RAG
-Ask questions like: Compare BB84 and MDI-QKD.
+At the same time, although Large Language Models can accelerate literature exploration, they introduce challenges such as hallucinated information, unsupported claims, and inconsistent reasoning.
 
-3. Multi-model comparison
-- GPT/Claude/Gemini/Open-source model (optional)
-- All answer the same question.
-
-4. Evaluation
-Automatically score:
-* Faithfulness
-* Groundedness
-* Relevance
-* Completeness
-* Citation quality
-* Hallucination risk
-- using tools like DeepEval or RAGAS.
+ResearchCompass aims to address this challenge by building a modular AI-assisted scientific research workflow that combines literature retrieval, retrieval-augmented generation (RAG), response evaluation, and knowledge organization to support more reliable and efficient research exploration.
 
 
-5. Human feedback
-Allow users to:
-Helpful/Not helpful/Rate the answer
-- Add comments.
+## Goals
+1. Reliable literature retrieval
+   - Provide accurate answers grounded in the research papers rather than relying on model knowledge.
+2. Transparent AI response
+   - Generated responses should be traceable to supporting contexts from source documents. 
+3. Modular AI Architecture
+   - Reusable Ai components that can be extended or modified easily based on needs.
+4. Improve research productivity
+   - Reduce manual time of searching papers, comparing methods, organizing notes.
+
+## Architecture
+
+## Modular Components
+1. Document Module
+2. Retrieval Module
+3. LLM Module
+4. Evaluation Module
+5. Memory Module
+6. Research Notebook
+7. Research Intelligence Module
+
+## Tech Stack
+- Backend: Python
+- AI: LangChain, OpenAI API/Antropic API
+- Retrieval: ChromaDB/FAISS
+- Embeddings: 
+- Evaluation: RAGAS, DeepEval
+- Database: PostgreSQL/SQLite
+- Frontend: Streamlit
+
+## Development Roadmap
+### Milestone 1 - Core 
+- pdf ingestion
+- document parsing
+- vector database
+- RAG assistant
+- semantic retrieval
+  
+### Milestone 2 - Evaluation
+- automated evaluation
+- citation grounding
+- hallucination detection
+- human feedback
+
+### Milestone 3 - Research Workspace
+- memory check 
+- paper collections 
+- tbd
+
+### Milestone 4 - Research Intelligence
+- paper comparison
+- research gap analysis
+- knowledge graph
+- paper recommendation 
+- tbd
 
 
-6. Memory
-The assistant remembers:
-* research interests (e.g., satellite QKD)
-* preferred papers
-* previous questions
-* saved notes
+## Initial Research Domain
+### Version 1.0 focuses on: 
+- QKD
+- QEC
+- Satellite Quantum Communication
+- Quantum Networks
+- Quantum Repeaters
 
-7. Research notebook
-Store:
-* generated summaries
-* personal notes
-* extracted equations
-* references
-This turns the system into a lightweight research workspace rather than just a chatbot.
-
-
-### Phase 2 
-1. Paper Comparison
-- Upload three papers. The system produces:
-* comparison table
-* common methods
-* limitations
-* datasets
-* future work
-
-2. Research Gap Finder
-- Prompt:
-  - “Based on these five papers, identify unresolved research questions.”
-
-3. Knowledge Graph
-- Extract:
-  - Paper → Authors → Topics → Methods → Results
-- Visualize relationships between concepts.
-
-4. Citation Verification
-When the model makes a claim, link it back to the supporting passage in the uploaded paper.
-
-
-⸻
-
-
-Initial dataset:
-For example:
-* BB84
-* MDI-QKD
-* Satellite QKD
-* Quantum repeaters
-* Atmospheric turbulence
-* Error correction in quantum communication
-
-
-Three milestones:
-1. Foundation (1–2 weeks): PDF ingestion, RAG, multi-model comparison, and a clean interface.
-2. Evaluation (1 week): Add automated metrics (DeepEval/RAGAS), citation grounding, and human feedback.
-3. Research capabilities (1–2 weeks): Memory, paper comparison, research gap identification, and a personal research notebook.
+## Future Extensions
+- Multi-agent research workflows (may add this to current Modules)
+- Experiment planning assistance
+- Personalized recommendation 
+- etc
