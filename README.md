@@ -50,7 +50,7 @@ ResearchCompass aims to address this challenge by building a modular AI-assisted
    - Reduce manual time of searching papers, comparing methods, organizing notes.
 
 ## Architecture
-(to add)
+![Research Compass Architecture V1](docs/ResearchCompass_Architecture_v1.png)
 
 ## Modular Components
 1. Document Module
