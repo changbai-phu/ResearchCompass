@@ -13,7 +13,7 @@ class DocumentParser:
     def parse(self) -> List[Dict[str, Any]]:
         parsed_doc: List[Dict[str, Any]] = []
 
-        for pnum, page in enumerate(self.doc): 
+        for pnum, page in enumerate(self.doc): # it's safe to ignore the warning here, simply pylance not recognize it is fitz.Doc
             text = page.get_text().strip()
             if text:
                 parsed_doc.append(
