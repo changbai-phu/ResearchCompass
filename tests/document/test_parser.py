@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 import pytest
 import fitz
-from unittest.mock import patch, MagicMock
+# from unittest.mock import patch, MagicMock
 
 # Add project root to path for imports to work when running directly
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
@@ -13,7 +13,7 @@ from src.modules.document.schema import Page
 # ==============================================================================
 # TEST CASE 1: The Happy Path (Success extract)
 # ==============================================================================
-def test_parser_success():
+def test_parser_success_unit():
     sample_pdf = Path("data/raw/sample_papers/adv_in_space_quan_comm.pdf")
 
     with fitz.open(sample_pdf) as doc:
@@ -25,9 +25,10 @@ def test_parser_success():
 
     for i, page in enumerate(result, start=1):
         assert isinstance(page, Page)
-
         #page_1 = result[0]
         assert page.page_number == i
+        assert page.source == sample_pdf.name
+
         assert isinstance(page.text, str)
         assert len(page.text) > 0
         assert page.text== page.text.strip() # test .strip() works
