@@ -1,5 +1,6 @@
 from src.modules.document.loader import DocumentLoader
 from src.modules.document.parser import DocumentParser
+from src.modules.document.schema import Page
 
 def run_pipeline(file_path: str):
     # 1. initialize the loader
