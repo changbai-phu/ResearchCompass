@@ -8,6 +8,7 @@ from unittest.mock import patch, MagicMock
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from src.modules.document.parser import DocumentParser
+from src.modules.document.schema import Page
 
 # ==============================================================================
 # TEST CASE 1: The Happy Path (Success extract)
@@ -23,16 +24,13 @@ def test_parser_success():
     assert len(result) > 0
 
     for i, page in enumerate(result, start=1):
-        assert isinstance(page, dict)
+        assert isinstance(page, Page)
 
         #page_1 = result[0]
-        assert "page_number" in page  #assert "page_number" in page_1
-        assert "text" in page #assert "text" in page_1
-
-        assert page["page_number"] == i
-        assert isinstance(page["text"], str)
-        assert len(page["text"]) > 0
-        assert page["text"] == page["text"].strip() # test .strip() works
+        assert page.page_number == i
+        assert isinstance(page.text, str)
+        assert len(page.text) > 0
+        assert page.text== page.text.strip() # test .strip() works
 
 # ==============================================================================
 # TEST CASE 2: Empty page
