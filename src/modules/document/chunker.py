@@ -5,6 +5,8 @@ class DocumentChunker:
     '''A modular class to handle chunking a pdf file into multiple chunks.'''
 
     def __init__(self, chunk_size: int=500, chunk_overlap: int=100):
+        if chunk_size <= 0 or chunk_overlap < 0 or chunk_overlap >= chunk_size:
+            raise ValueError("Check value of chunk_size and chunk_overlap.")
         self.chunk_size = chunk_size
         self.chunk_overlap = chunk_overlap
 
