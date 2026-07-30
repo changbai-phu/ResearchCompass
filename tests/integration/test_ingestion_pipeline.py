@@ -22,20 +22,26 @@ def test_ingestion_pipeline():
     if not Path(sample_pdf).exists():
         pytest.skip(f"Skipping integration test: {sample_pdf} not found.")
 
+    # Act: Execute the ingestion pipeline
     loader = DocumentLoader(sample_pdf)
-    #loader_doc = loader.load()
 
     with loader.load() as doc:
         parser = DocumentParser(doc)
         parsed_doc = parser.parse()
 
-        assert isinstance(parsed_doc, list)
-        assert len(parsed_doc) > 0
+        chunker = DocumentChunker(chunk_size=500, chunk_overlap=50)
+        chunks = chunker.chunk(parsed_doc)
 
-        first_page = parsed_doc[0]
-        assert isinstance(first_page, Page)
-        assert first_page.page_number == 1
-        assert len(first_page.text) > 0
+        # Assertion
+        assert isinstance(chunks, list)
+        assert len(chunks) > 0
+
+        chunk_1 = chunks[0]
+        assert isinstance(chunk_1, Chunk)
+        assert "page1" in chunk_1.id
+        assert chunk_1.page_number == 1
+        assert len(chunk_1.text) > 0
+        assert chunk_1.source == Path(sample_pdf).name
 
 
 # Programmatic helper block to run inline test buttons
