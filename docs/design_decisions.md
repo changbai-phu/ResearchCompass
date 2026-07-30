@@ -14,3 +14,9 @@
 - Retriever specifically for retrieval strategy, preparing for downstream AI generation. 
 - Vectore store only for store and search acquired vectors, not deciding.
 - So can later adding reranking/hybrid search/query expansion without changing storage layer. 
+
+## Avoid LangChain initially
+- Later may integrate with LangChain, but for now will build the pieces one by one first, can better understand what LangChain is abstracting. 
+
+## Create new dataclass for Embedding instead of feeding to ChromaDB directly
+- It seems Chroma calls embedding functions internally which is really convenient, however, for better deciding which sentence embedding technique to be used, a customized dataclass will be created. 
