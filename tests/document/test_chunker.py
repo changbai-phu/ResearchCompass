@@ -13,7 +13,7 @@ from src.modules.document.schema import Page, Chunk
 Core logic shall be tested:
 - Split text into chunks of the required size
 - Preserve the overlap between consecutive chunks
-- Preserve metadat (page_number, source)
+- Preserve metadata (page_number, source)
 - Generate proper unique chunk.id
 '''
 
