@@ -35,7 +35,7 @@ class TextEmbedder:
         compiled_embeddings: List[Embeddings] = []
 
         for idx, chunk in enumerate(chunks):
-            unique_chunk_id = f"{chunk.source}#{chunk.id}"
+            unique_chunk_id = f"{chunk.source}::{chunk.id}"
 
             compiled_embeddings.append(
                 Embeddings(
