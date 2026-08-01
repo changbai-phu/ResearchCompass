@@ -47,11 +47,17 @@ def test_chunker_success_unit():
     assert chunks_t1[1].id == 'page1_8'
     assert chunks_t1[2].id == 'page1_16'
 
+# ==============================================================================
+# TEST CASE 2: Test with empty pages
+# ==============================================================================
 def test_chunker_empty_pages_unit():
     chunker_test_2 = DocumentChunker()
     chunks_t2 = chunker_test_2.chunk([])
     assert chunks_t2 == []
 
+# ==============================================================================
+# TEST CASE 3: Test with invalid chunk_size and chunk_overlap values
+# ==============================================================================
 def test_chunker_invalid_chunk_value_unit():
     with pytest.raises(ValueError):
         DocumentChunker(
