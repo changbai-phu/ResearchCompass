@@ -1,10 +1,10 @@
 
-from typing import List, Dict, Any, cast
+from typing import List, Dict, Any #, cast
 from pathlib import Path
 import chromadb
 
 # Import Chroma's internal types to satisfy the type checker
-from chromadb.api.types import Embeddings as ChromaEmbeddings, Metadatas as ChromaMetadatas
+# from chromadb.api.types import Embeddings as ChromaEmbeddings, Metadatas as ChromaMetadatas
 
 from src.modules.document.schema import Chunk
 from src.modules.retrieval.schema import Embeddings
@@ -56,9 +56,9 @@ class VectorStore:
         if ids: # safety check
             self.collection.add(
                 ids=ids,
-                embeddings=cast(ChromaEmbeddings, vectors),
+                embeddings=vectors, #cast(ChromaEmbeddings, vectors),
                 documents=docText,
-                metadatas=cast(ChromaMetadatas, metadatas)
+                metadatas=metadatas #cast(ChromaMetadatas, metadatas)
             )
 
 
@@ -66,8 +66,8 @@ class VectorStore:
         query_list = [query_embedding]
 
         result = self.collection.query(
-            query_embeddings=cast(ChromaEmbeddings, query_list),
+            query_embeddings=query_list,  #cast(ChromaEmbeddings, query_list),
             n_results = top_k
         )
 
-        return cast(Dict[str, Any], result)
+        return result #(Dict[str, Any], result)
