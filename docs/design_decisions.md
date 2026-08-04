@@ -12,7 +12,7 @@
 
 ## Separate retriever from vector store
 - Retriever specifically for retrieval strategy, preparing for downstream AI generation. 
-- Vectore store only for store and search acquired vectors, not deciding.
+- Vector store only for store and search acquired vectors, not deciding.
 - So can later adding reranking/hybrid search/query expansion without changing storage layer. 
 
 ## Avoid LangChain initially
