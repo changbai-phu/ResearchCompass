@@ -52,6 +52,8 @@ class VectorStore:
                         "model_used": record.model_name
                     }
                 )
+            else: # emb_chunk_id not in embeddings_map:
+                raise ValueError(f"Missing embedding for {emb_chunk_id}")
 
         if ids: # safety check
             self.collection.add(
