@@ -37,7 +37,7 @@ class TextRetriever:
 
         retrieved_chunks: List[RetrievedChunk] = []
 
-        if not raw_results or not raw_results["id"]: # later on check if empty [[]]
+        if not raw_results or not raw_results["ids"]: # later on check if empty [[]]
             return retrieved_chunks
 
         ids = raw_results["ids"][0]  # see the section at the bottom for ChromaDB structure
