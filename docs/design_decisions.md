@@ -28,3 +28,42 @@
   - small database, currently only have one paper 
   - no reranking (add cross-encoder reranker)
 - *Note*: improvement will make for later version of Tag. 
+
+## LLM API choices in initial generator code
+- Choose Qwen/Deepseek initially because of following:
+  - to make code provider independence
+  - can later do model behavior comparison easier (groundedness/completeness/hallucination/cost)
+  - use relatively inexpensive providers while developing and debugging, then test stronger models later.
+  - considering geographic availability, payment options, model families etc.
+  - for experimental purpose in evaluation module later on, e.g., does the same retrieved context + the same prompt have the similar performance across modules. 
+
+| Provider | Model | Input / 1M tokens | Output / 1M tokens | Context | Range|
+|---|---|---:|---:|---:|---:|
+| Qwen | Qwen3.5-Flash | $0.115/$0.172 | $1.147/$1.72 | Up to 1M | 128K<Token≤256K |
+| Qwen | Qwen3.5-Plus | $0.287/0.573 | $1.147/$3.44| Up to 1M | 128K<Token≤256K |
+| DeepSeek | DeepSeek-V4-Flash | $0.14 | $0.28 | 1M | N/A |
+| DeepSeek | DeepSeek-V4-Pro(no thinking) | $0.435 | $0.87| 1M | N/A |
+| OpenAI | GPT-5.4 mini | $0.75 | $4.50 | 400K | N/A |
+| OpenAI | GPT-5.6 Terra | $2.00 | $12 | 1M | N/A |
+| OpenAI | GPT-5.6-sol | $5.00 | $30.00 | 1M | N/A |
+
+
+- links for pricing:
+  - [Qwen] (https://www.alibabacloud.com/help/en/model-studio/model-pricing?utm_source=chatgpt.com)
+  - [DeepSeek] (https://api-docs.deepseek.com/quick_start/pricing/?utm_source=chatgpt.com)
+  - [OpenAI] (https://developers.openai.com/api/docs/models)
+- Links for LLM benchmark:
+  - [Which LLM to Choose in 2026? Selection Guide + Benchmarks](https://iternal.ai/llm-selection-guide)
+    - based on intended use-case tier:
+      1. The Budget/Flash Tier (Ultra-fast, structured tasks) - classification, keyword extraction, routing queries, basic summaries.
+         1. gpt-4o-mini/gpt-5.4-nano
+         2. deepseek-v4-flash
+         3. qwen3.5-flash
+      2. The Balanced/Value Tier (Standard RAG sweet spot) - standard RAG applications, multi-page synthesis, general chatting.
+         1. gpt-5.4-terra/gpt-4o
+         2. deepseek-v4-pro
+         3. qwen3.5-plus/qwen2.5-72b
+      3. The Flagship/Reasoning Tier (Complex math, coding, logic) - heavy coding, debugging, strict mathematical reasoning, multi-step agents. 
+         1. gpt-5.6-sol
+         2. deepseek-v4-pro(with thinking)
+         3. qwen3.8-max
