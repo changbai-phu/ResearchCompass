@@ -49,9 +49,9 @@
 
 
 - links for pricing:
-  - [Qwen] (https://www.alibabacloud.com/help/en/model-studio/model-pricing?utm_source=chatgpt.com)
-  - [DeepSeek] (https://api-docs.deepseek.com/quick_start/pricing/?utm_source=chatgpt.com)
-  - [OpenAI] (https://developers.openai.com/api/docs/models)
+  - [Qwen](https://www.alibabacloud.com/help/en/model-studio/model-pricing?utm_source=chatgpt.com)
+  - [DeepSeek](https://api-docs.deepseek.com/quick_start/pricing/?utm_source=chatgpt.com)
+  - [OpenAI](https://developers.openai.com/api/docs/models)
 - Links for LLM benchmark:
   - [Which LLM to Choose in 2026? Selection Guide + Benchmarks](https://iternal.ai/llm-selection-guide)
     - based on intended use-case tier:
