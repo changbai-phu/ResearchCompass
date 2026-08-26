@@ -18,7 +18,33 @@ class PromptBuilder:
         try:
             self.system_instruction = prompt_path.read_text(encoding="utf-8").strip()
         except FileNotFoundError:
-            self.system_instruction = "You are a professional research assistant. Answer based on context."
+            self.system_instruction = "You are a professional research assistant. Answer based on context. CONTEXT:\n{{context}}\n\nQUESTION: {{question}}"
 
-    def prompt_build(self, query: str, context: List[RetrievedChunk]) -> str: # prompt str output
-        
+    def build(self, query_text: str, retrieved_chunks: List[RetrievedChunk]) -> List[Dict[str, str]]:
+        '''
+        Insert parameters into the template placeholder slots, and compile the unified output
+        '''
+        context_blocks: List[str] = []
+
+        for idx, item in enumerate(retrieved_chunks):
+            block = (
+                f"[Document {idx + 1}] \n"
+                f"Source Filename: {item.chunk.source} \n"
+                f"Page Number: Page {item.chunk.page_number} \n"
+                f"Text Segment: {item.chunk.text} \n"
+            )
+            context_blocks.append(block)
+
+        compiled_context_str = "\n".join(context_blocks)
+
+        populated_user_content = self.system_instruction.replace(
+            "{{context}}", compiled_context_str
+        ).replace(
+            "{{question}}", query_text
+        )
+
+        return [
+            {
+                "role": "user",
+                "content": populated_user_content
+            }]
